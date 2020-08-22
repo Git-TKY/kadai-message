@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <div class="container">
+      <%= render 'layouts/flash_messages' %>
+    
+    <!--このyieldの部分に各viewsファイルの中身が代入される-->
     <%= yield %>
   </body>
 </html>
