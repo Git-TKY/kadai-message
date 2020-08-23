@@ -1,2 +1,4 @@
 class Message < ApplicationRecord
-end
+  validates :content, presence: true, length: { maximum:255 }
+  #presence :空のデータを許可するかどうか true:許可しない
+  end
