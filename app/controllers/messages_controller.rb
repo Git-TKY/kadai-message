@@ -2,14 +2,18 @@ class MessagesController < ApplicationController
   before_action :set_message, only:[:show, :edit, :update, :destroy]
   
   def index
-    @messages = Message.all
+    #モデル.コマンド.page(params[:page])でページネーション
+    #per(x)で最大表示件数を指定
+    #並び替えorder( パーシャル名 :desc) 降順指定　昇順(asc)も可
+    @messages = Message.order(id: :desc).page(params[:page]).per(3)
+    #@messages = Message.all.page(params[:page]).per(3)
   end
 
   def show
   end
 
   def new
-    @message = Message.new(content: 'sample')
+    @message = Message.new
   end
 
   def create
